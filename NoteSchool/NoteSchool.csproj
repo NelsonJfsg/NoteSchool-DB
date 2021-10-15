@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Layout\Home\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Home\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Load\ScSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Main\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Layout\Home\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\Load\ScSplash.resx">
       <DependentUpon>ScSplash.cs</DependentUpon>
     </EmbeddedResource>
