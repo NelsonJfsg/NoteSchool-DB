@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBase\Connection.cs" />
+    <Compile Include="DataBase\SqlOpenHelper.cs" />
     <Compile Include="Layout\Home\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
