@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NoteSchool.Layout.Load;
+using NoteSchool.Layout.Home;
 
 namespace NoteSchool.Main
 {
@@ -17,7 +17,7 @@ namespace NoteSchool.Main
             //ejecutar load.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ScSplash());
+            Application.Run(new ScHome());
 
         }
     }

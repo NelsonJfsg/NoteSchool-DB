@@ -48,11 +48,29 @@
   <ItemGroup>
     <Compile Include="DataBase\Connection.cs" />
     <Compile Include="DataBase\SqlOpenHelper.cs" />
-    <Compile Include="Layout\Home\Form1.cs">
+    <Compile Include="Layout\Homework\ScHomework.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Layout\Home\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Layout\Homework\ScHomework.Designer.cs">
+      <DependentUpon>ScHomework.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Home\ScHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Home\ScHome.Designer.cs">
+      <DependentUpon>ScHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Home\ScStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Home\ScStart.Designer.cs">
+      <DependentUpon>ScStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Information\ScInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Information\ScInformation.Designer.cs">
+      <DependentUpon>ScInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\Load\ScSplash.cs">
       <SubType>Form</SubType>
@@ -60,13 +78,49 @@
     <Compile Include="Layout\Load\ScSplash.Designer.cs">
       <DependentUpon>ScSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\Note\ScNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Note\ScNote.Designer.cs">
+      <DependentUpon>ScNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Schedule\ScSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Schedule\ScSchedule.Designer.cs">
+      <DependentUpon>ScSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Subject\ScSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Subject\ScSubject.Designer.cs">
+      <DependentUpon>ScSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Layout\Home\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Layout\Homework\ScHomework.resx">
+      <DependentUpon>ScHomework.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Home\ScHome.resx">
+      <DependentUpon>ScHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Home\ScStart.resx">
+      <DependentUpon>ScStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Information\ScInformation.resx">
+      <DependentUpon>ScInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Load\ScSplash.resx">
       <DependentUpon>ScSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Note\ScNote.resx">
+      <DependentUpon>ScNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Schedule\ScSchedule.resx">
+      <DependentUpon>ScSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Subject\ScSubject.resx">
+      <DependentUpon>ScSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,6 +130,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,11 +141,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="testFile" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Subject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InformationW.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

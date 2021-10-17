@@ -8,12 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NoteSchool.Layout.Home
+namespace NoteSchool.Layout.Information
 {
-    public partial class Form1 : Form
+    public partial class ScInformation : Form
     {
-        public Form1()
-        {
+        public ScInformation() {
             InitializeComponent();
         }
     }
