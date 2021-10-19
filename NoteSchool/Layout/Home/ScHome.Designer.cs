@@ -32,12 +32,14 @@ namespace NoteSchool.Layout.Home
             this.panel1 = new System.Windows.Forms.Panel();
             this.lTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pbHomework = new System.Windows.Forms.PictureBox();
             this.pbInformation = new System.Windows.Forms.PictureBox();
             this.pbSchedule = new System.Windows.Forms.PictureBox();
             this.pbNote = new System.Windows.Forms.PictureBox();
             this.pbSubject = new System.Windows.Forms.PictureBox();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHomework)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInformation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNote)).BeginInit();
@@ -48,6 +50,7 @@ namespace NoteSchool.Layout.Home
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
+            this.panel1.Controls.Add(this.pbHomework);
             this.panel1.Controls.Add(this.pbInformation);
             this.panel1.Controls.Add(this.pbSchedule);
             this.panel1.Controls.Add(this.pbNote);
@@ -64,7 +67,7 @@ namespace NoteSchool.Layout.Home
             this.lTitle.AutoSize = true;
             this.lTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitle.ForeColor = System.Drawing.Color.White;
-            this.lTitle.Location = new System.Drawing.Point(12, 9);
+            this.lTitle.Location = new System.Drawing.Point(16, 9);
             this.lTitle.Name = "lTitle";
             this.lTitle.Size = new System.Drawing.Size(147, 32);
             this.lTitle.TabIndex = 0;
@@ -78,12 +81,23 @@ namespace NoteSchool.Layout.Home
             this.panel2.Size = new System.Drawing.Size(784, 451);
             this.panel2.TabIndex = 1;
             // 
+            // pbHomework
+            // 
+            this.pbHomework.Image = global::NoteSchool.Properties.Resources.homework;
+            this.pbHomework.Location = new System.Drawing.Point(0, 331);
+            this.pbHomework.Name = "pbHomework";
+            this.pbHomework.Size = new System.Drawing.Size(181, 54);
+            this.pbHomework.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbHomework.TabIndex = 6;
+            this.pbHomework.TabStop = false;
+            this.pbHomework.Click += new System.EventHandler(this.pbHomework_Click);
+            // 
             // pbInformation
             // 
             this.pbInformation.Image = global::NoteSchool.Properties.Resources.Information;
-            this.pbInformation.Location = new System.Drawing.Point(115, 378);
+            this.pbInformation.Location = new System.Drawing.Point(125, 395);
             this.pbInformation.Name = "pbInformation";
-            this.pbInformation.Size = new System.Drawing.Size(60, 60);
+            this.pbInformation.Size = new System.Drawing.Size(50, 50);
             this.pbInformation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbInformation.TabIndex = 5;
             this.pbInformation.TabStop = false;
@@ -92,9 +106,9 @@ namespace NoteSchool.Layout.Home
             // pbSchedule
             // 
             this.pbSchedule.Image = global::NoteSchool.Properties.Resources.Calendar;
-            this.pbSchedule.Location = new System.Drawing.Point(0, 293);
+            this.pbSchedule.Location = new System.Drawing.Point(0, 262);
             this.pbSchedule.Name = "pbSchedule";
-            this.pbSchedule.Size = new System.Drawing.Size(181, 60);
+            this.pbSchedule.Size = new System.Drawing.Size(181, 54);
             this.pbSchedule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSchedule.TabIndex = 4;
             this.pbSchedule.TabStop = false;
@@ -102,10 +116,10 @@ namespace NoteSchool.Layout.Home
             // 
             // pbNote
             // 
-            this.pbNote.Image = global::NoteSchool.Properties.Resources.Note;
-            this.pbNote.Location = new System.Drawing.Point(0, 215);
+            this.pbNote.Image = global::NoteSchool.Properties.Resources.Notes;
+            this.pbNote.Location = new System.Drawing.Point(0, 193);
             this.pbNote.Name = "pbNote";
-            this.pbNote.Size = new System.Drawing.Size(181, 60);
+            this.pbNote.Size = new System.Drawing.Size(181, 54);
             this.pbNote.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbNote.TabIndex = 3;
             this.pbNote.TabStop = false;
@@ -114,9 +128,9 @@ namespace NoteSchool.Layout.Home
             // pbSubject
             // 
             this.pbSubject.Image = global::NoteSchool.Properties.Resources.Subject;
-            this.pbSubject.Location = new System.Drawing.Point(0, 139);
+            this.pbSubject.Location = new System.Drawing.Point(0, 124);
             this.pbSubject.Name = "pbSubject";
-            this.pbSubject.Size = new System.Drawing.Size(181, 60);
+            this.pbSubject.Size = new System.Drawing.Size(181, 54);
             this.pbSubject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSubject.TabIndex = 2;
             this.pbSubject.TabStop = false;
@@ -128,7 +142,7 @@ namespace NoteSchool.Layout.Home
             this.pbHome.Image = global::NoteSchool.Properties.Resources.Background;
             this.pbHome.Location = new System.Drawing.Point(0, 55);
             this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(181, 68);
+            this.pbHome.Size = new System.Drawing.Size(181, 54);
             this.pbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbHome.TabIndex = 1;
             this.pbHome.TabStop = false;
@@ -142,10 +156,11 @@ namespace NoteSchool.Layout.Home
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ScHome";
-            this.Text = "ScHome";
+            this.Text = "NoteSchool v0.1.0";
             this.Load += new System.EventHandler(this.ScHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHomework)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInformation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchedule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNote)).EndInit();
@@ -165,5 +180,6 @@ namespace NoteSchool.Layout.Home
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lTitle;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pbHomework;
     }
 }

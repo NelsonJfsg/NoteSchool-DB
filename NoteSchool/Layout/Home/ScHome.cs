@@ -74,6 +74,10 @@ namespace NoteSchool.Layout.Home {
 
         }
 
+        private void pbHomework_Click(object sender, EventArgs e) {
+            ChangeScreen(pbHomework, scHomework);
+        }
+
         //My methods
 
         //Fill list of picture box
@@ -84,6 +88,7 @@ namespace NoteSchool.Layout.Home {
             itemList.Add(pbSubject);
             itemList.Add(pbSchedule);
             itemList.Add(pbInformation);
+            itemList.Add(pbHomework);
 
         }
 

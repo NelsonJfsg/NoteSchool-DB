@@ -83,6 +83,16 @@ namespace NoteSchool.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap homework {
+            get {
+                object obj = ResourceManager.GetObject("homework", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Information {
             get {
                 object obj = ResourceManager.GetObject("Information", resourceCulture);
@@ -106,6 +116,16 @@ namespace NoteSchool.Properties {
         internal static System.Drawing.Bitmap Note {
             get {
                 object obj = ResourceManager.GetObject("Note", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Notes {
+            get {
+                object obj = ResourceManager.GetObject("Notes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
