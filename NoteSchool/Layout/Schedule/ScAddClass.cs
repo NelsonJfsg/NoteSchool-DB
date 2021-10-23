@@ -8,18 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NoteSchool.Layout.Home
+namespace NoteSchool.Layout.Schedule
 {
-    public partial class ScStart : Form
+    public partial class ScAddClass : Form
     {
-        public ScStart()
-        {
+        public ScAddClass() {
             InitializeComponent();
-        }
-
-        private void ScStart_Activated(object sender, EventArgs e)
-        {
-
         }
     }
 }

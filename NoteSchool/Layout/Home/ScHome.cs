@@ -14,6 +14,8 @@ using NoteSchool.Layout.Note;
 using NoteSchool.Layout.Schedule;
 using NoteSchool.Layout.Subject;
 using NoteSchool.Layout.Information;
+using System.Data.SqlClient;
+using NoteSchool.DataBase;
 
 namespace NoteSchool.Layout.Home {
 
@@ -30,6 +32,9 @@ namespace NoteSchool.Layout.Home {
         //Save picture picture box in a list.
         private static List<PictureBox> itemList = new List<PictureBox>();
 
+        //
+        private static SqlConnection sqlConnection;
+
         //Constructor
         public ScHome() {
 
@@ -39,6 +44,10 @@ namespace NoteSchool.Layout.Home {
         }
 
         private void ScHome_Load(object sender, EventArgs e) {
+
+            DataBase.Utilities.Utilities.CreateAllTables();
+
+            lTitle.Text = SqlOpenHelper.CheckConnection().ToString();
 
             ChangeScreen(pbHome, scStart); //Set firt screen
 

@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBase\Connection.cs" />
-    <Compile Include="DataBase\SqlOpenHelper.cs" />
+    <Compile Include="DataBase\SqlServer\SqlOpenHelper.cs" />
+    <Compile Include="DataBase\Tables\Subject.cs" />
+    <Compile Include="DataBase\Utilities\Utilities.cs" />
     <Compile Include="Layout\Homework\ScHomework.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,11 +85,29 @@
     <Compile Include="Layout\Note\ScNote.Designer.cs">
       <DependentUpon>ScNote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\Schedule\ScAddClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Schedule\ScAddClass.Designer.cs">
+      <DependentUpon>ScAddClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Schedule\ScSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Layout\Schedule\ScSchedule.Designer.cs">
       <DependentUpon>ScSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Subject\ScAddSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Subject\ScAddSubject.Designer.cs">
+      <DependentUpon>ScAddSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Subject\ScEditSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Subject\ScEditSubject.Designer.cs">
+      <DependentUpon>ScEditSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\Subject\ScSubject.cs">
       <SubType>Form</SubType>
@@ -118,6 +137,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Schedule\ScSchedule.resx">
       <DependentUpon>ScSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Subject\ScAddSubject.resx">
+      <DependentUpon>ScAddSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Subject\ScEditSubject.resx">
+      <DependentUpon>ScEditSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Subject\ScSubject.resx">
       <DependentUpon>ScSubject.cs</DependentUpon>
@@ -168,6 +193,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Notes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_Circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_Circle_Outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_Mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_Note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edir_Half_Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_Note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mark_Added.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_Circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -113,6 +113,7 @@ namespace NoteSchool.Layout.Home
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ScStart";
             this.Text = "ScStart";
+            this.Activated += new System.EventHandler(this.ScStart_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);

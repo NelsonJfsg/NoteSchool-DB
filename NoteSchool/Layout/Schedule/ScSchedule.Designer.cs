@@ -26,18 +26,28 @@ namespace NoteSchool.Layout.Schedule
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.label1 = new System.Windows.Forms.Label();
+            this.dgvSubject = new System.Windows.Forms.DataGridView();
+            this.butCreateSubject = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // dgvSubject
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(202, 182);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(356, 86);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SCHEDULE";
+            this.dgvSubject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSubject.Location = new System.Drawing.Point(12, 12);
+            this.dgvSubject.Name = "dgvSubject";
+            this.dgvSubject.Size = new System.Drawing.Size(776, 234);
+            this.dgvSubject.TabIndex = 0;
+            // 
+            // butCreateSubject
+            // 
+            this.butCreateSubject.Location = new System.Drawing.Point(55, 361);
+            this.butCreateSubject.Name = "butCreateSubject";
+            this.butCreateSubject.Size = new System.Drawing.Size(75, 23);
+            this.butCreateSubject.TabIndex = 1;
+            this.butCreateSubject.Text = "button1";
+            this.butCreateSubject.UseVisualStyleBackColor = true;
+            this.butCreateSubject.Click += new System.EventHandler(this.butCreateSubject_Click);
             // 
             // ScSchedule
             // 
@@ -45,17 +55,20 @@ namespace NoteSchool.Layout.Schedule
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.butCreateSubject);
+            this.Controls.Add(this.dgvSubject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ScSchedule";
             this.Text = "ScSchedule";
+            this.Load += new System.EventHandler(this.ScSchedule_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvSubject;
+        private System.Windows.Forms.Button butCreateSubject;
     }
 }

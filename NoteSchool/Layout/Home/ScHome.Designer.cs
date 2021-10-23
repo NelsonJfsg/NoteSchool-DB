@@ -30,14 +30,14 @@ namespace NoteSchool.Layout.Home
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lTitle = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pbHomework = new System.Windows.Forms.PictureBox();
             this.pbInformation = new System.Windows.Forms.PictureBox();
             this.pbSchedule = new System.Windows.Forms.PictureBox();
             this.pbNote = new System.Windows.Forms.PictureBox();
             this.pbSubject = new System.Windows.Forms.PictureBox();
             this.pbHome = new System.Windows.Forms.PictureBox();
+            this.lTitle = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHomework)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInformation)).BeginInit();
@@ -61,25 +61,6 @@ namespace NoteSchool.Layout.Home
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(181, 451);
             this.panel1.TabIndex = 0;
-            // 
-            // lTitle
-            // 
-            this.lTitle.AutoSize = true;
-            this.lTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitle.ForeColor = System.Drawing.Color.White;
-            this.lTitle.Location = new System.Drawing.Point(16, 9);
-            this.lTitle.Name = "lTitle";
-            this.lTitle.Size = new System.Drawing.Size(147, 32);
-            this.lTitle.TabIndex = 0;
-            this.lTitle.Text = "NoteSchool";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(181, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 451);
-            this.panel2.TabIndex = 1;
             // 
             // pbHomework
             // 
@@ -148,6 +129,25 @@ namespace NoteSchool.Layout.Home
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
+            // lTitle
+            // 
+            this.lTitle.AutoSize = true;
+            this.lTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTitle.ForeColor = System.Drawing.Color.White;
+            this.lTitle.Location = new System.Drawing.Point(16, 9);
+            this.lTitle.Name = "lTitle";
+            this.lTitle.Size = new System.Drawing.Size(147, 32);
+            this.lTitle.TabIndex = 0;
+            this.lTitle.Text = "NoteSchool";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(181, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(784, 451);
+            this.panel2.TabIndex = 1;
+            // 
             // ScHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,7 +156,7 @@ namespace NoteSchool.Layout.Home
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ScHome";
-            this.Text = "NoteSchool v0.1.2";
+            this.Text = "NoteSchool v0.2.0";
             this.Load += new System.EventHandler(this.ScHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
