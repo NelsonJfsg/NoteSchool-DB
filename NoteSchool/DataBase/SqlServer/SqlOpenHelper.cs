@@ -32,14 +32,12 @@ namespace NoteSchool.DataBase
                 sqlConnection.Open();
                 sqlConnection.Close();
 
-                MessageBox.Show("Todo bien");
 
                 return true;
 
-            }
-            catch (Exception err) {
+            } catch (Exception err) {
 
-                MessageBox.Show(err.ToString());
+                MessageBox.Show("Something was wrong: \n" + err.ToString());
 
                 return false;
 

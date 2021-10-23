@@ -156,7 +156,7 @@ namespace NoteSchool.Layout.Home
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ScHome";
-            this.Text = "NoteSchool v0.2.0";
+            this.Text = "NoteSchool v0.2.1";
             this.Load += new System.EventHandler(this.ScHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

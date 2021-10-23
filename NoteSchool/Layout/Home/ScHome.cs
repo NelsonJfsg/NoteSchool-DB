@@ -45,12 +45,15 @@ namespace NoteSchool.Layout.Home {
 
         private void ScHome_Load(object sender, EventArgs e) {
 
-            DataBase.Utilities.Utilities.CreateAllTables();
+            if (SqlOpenHelper.CheckConnection()) {
 
-            lTitle.Text = SqlOpenHelper.CheckConnection().ToString();
+                DataBase.Utilities.Utilities.CreateAllTables();
 
-            ChangeScreen(pbHome, scStart); //Set firt screen
+                ChangeScreen(pbHome, scStart); //Set firt screen
 
+            } else {
+                Application.Exit();
+            }
         }
 
         private void pbSubject_Click(object sender, EventArgs e) {  

@@ -156,7 +156,7 @@ namespace NoteSchool.Layout.Subject
             this.MinimumSize = new System.Drawing.Size(484, 461);
             this.Name = "ScEditSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoteSchool v0.2.0 - Edit subject";
+            this.Text = "NoteSchool v0.2.1 - Edit subject";
             this.Load += new System.EventHandler(this.ScEditSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
