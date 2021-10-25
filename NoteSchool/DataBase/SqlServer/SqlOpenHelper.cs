@@ -13,20 +13,18 @@ namespace NoteSchool.DataBase
 
         //Atributes to connect db.
         private static String dbName = "dbNoteSchool;";
-        private static String serverName = "DESKTOP-9KVSAP9\\DBNELSONJFSG;";
-        private static String userName = "sa;";
-        private static String password = "NelsonJfsg";
 
-        //Variable para entrar a la base de datos.
-        private static String connectionQuery =
-            "Database = " + dbName +
-            "Data Source = " + serverName +
-            "User Id = " + userName +
-            "Password = " + password;
+        //Nelson, Pablo, Kevin, Kike
+        private static String user = "Nelson";
 
+
+        private static String connectionQuery;
+        
         public static Boolean CheckConnection() {
 
             try {
+
+                connectionQuery = connectUser(user);
 
                 SqlConnection sqlConnection = new SqlConnection(connectionQuery);
                 sqlConnection.Open();
@@ -46,6 +44,8 @@ namespace NoteSchool.DataBase
 
 
         public static SqlConnection OpenConnection() {
+            
+            connectionQuery = connectUser(user);
 
             SqlConnection sqlConnection = new SqlConnection(connectionQuery);
 
@@ -75,7 +75,47 @@ namespace NoteSchool.DataBase
 
         }
 
+        private static String setUser(String dbName, String serverName, String userName, String password) {
+            
+            //Variable para entrar a la base de datos.
+            String connectionQuery = "Database = " + dbName + "Data Source = " + serverName + "User Id = " + userName + "Password = " + password;
+
+            return connectionQuery;
+        }
         
+        private static String connectUser(String user) {
+            
+            String connectionQuery = null;
+            
+            switch (user) {
+
+                case "Nelson":
+
+                    connectionQuery = setUser(dbName, "DESKTOP-9KVSAP9\\DBNELSONJFSG;", "sa;", "NelsonJfsg;");
+
+                    break;
+
+                case "Kevin":
+
+                    connectionQuery = setUser(dbName, "localhost\\SQLEXPRESS;", "kevinvillagran;", "kevinricardo;");
+
+                    break;
+                case "Kike":
+
+                    connectionQuery = setUser(dbName, "LAPTOP-4P9S268V;", "kikexmtz;", "tutifruti123");
+
+                    break;
+                case "Pablo":
+
+                    connectionQuery = setUser(dbName, "localhost\\SQLEXPRESS;", "PabloG;", "chtmkevinxd;");
+
+                    break;
+
+            }
+            
+            return connectionQuery;
+
+        }
 
 
     }
