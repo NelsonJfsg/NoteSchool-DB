@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\SqlServer\SqlOpenHelper.cs" />
+    <Compile Include="DataBase\Tables\Schedule.cs" />
     <Compile Include="DataBase\Tables\Subject.cs" />
+    <Compile Include="DataBase\Tables\User.cs" />
     <Compile Include="DataBase\Utilities\Utilities.cs" />
     <Compile Include="Layout\Homework\ScHomework.cs">
       <SubType>Form</SubType>
@@ -78,6 +80,18 @@
     </Compile>
     <Compile Include="Layout\Load\ScSplash.Designer.cs">
       <DependentUpon>ScSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Login\ScLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Login\ScLogin.Designer.cs">
+      <DependentUpon>ScLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Login\ScSign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Login\ScSign.Designer.cs">
+      <DependentUpon>ScSign.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\Note\ScNote.cs">
       <SubType>Form</SubType>
@@ -131,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Load\ScSplash.resx">
       <DependentUpon>ScSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Login\ScLogin.resx">
+      <DependentUpon>ScLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Login\ScSign.resx">
+      <DependentUpon>ScSign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Note\ScNote.resx">
       <DependentUpon>ScNote.cs</DependentUpon>
@@ -232,6 +252,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Remove_Circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

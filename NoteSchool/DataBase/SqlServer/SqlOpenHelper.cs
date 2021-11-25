@@ -17,9 +17,9 @@ namespace NoteSchool.DataBase
         //Nelson, Pablo, Kevin, Kike
         private static String user = "Nelson";
 
-
         private static String connectionQuery;
-        
+
+        //System        
         public static Boolean CheckConnection() {
 
             try {
@@ -42,7 +42,7 @@ namespace NoteSchool.DataBase
             }
         }
 
-
+        
         public static SqlConnection OpenConnection() {
             
             connectionQuery = connectUser(user);

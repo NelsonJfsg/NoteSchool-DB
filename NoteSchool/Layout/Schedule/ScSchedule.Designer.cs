@@ -34,14 +34,14 @@ namespace NoteSchool.Layout.Schedule
             // dgvSubject
             // 
             this.dgvSubject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSubject.Location = new System.Drawing.Point(12, 12);
+            this.dgvSubject.Location = new System.Drawing.Point(12, 40);
             this.dgvSubject.Name = "dgvSubject";
             this.dgvSubject.Size = new System.Drawing.Size(776, 234);
             this.dgvSubject.TabIndex = 0;
             // 
             // butCreateSubject
             // 
-            this.butCreateSubject.Location = new System.Drawing.Point(55, 361);
+            this.butCreateSubject.Location = new System.Drawing.Point(573, 310);
             this.butCreateSubject.Name = "butCreateSubject";
             this.butCreateSubject.Size = new System.Drawing.Size(75, 23);
             this.butCreateSubject.TabIndex = 1;
