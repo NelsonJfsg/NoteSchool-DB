@@ -9,12 +9,5 @@ namespace NoteSchool.DataBase.Tables
     class Schedule
     {
 
-        //
-
-
-
-
-
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using NoteSchool.DataBase.Tables;
+using NoteSchool.DataBase.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,11 @@ namespace NoteSchool.Layout.Login
         private void pbExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void ScLogin_Load(object sender, EventArgs e)
+        {
+            Utilities.CreateAllTables();
         }
     }
 }

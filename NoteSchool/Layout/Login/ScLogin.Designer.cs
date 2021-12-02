@@ -147,6 +147,7 @@ namespace NoteSchool.Layout.Login
             this.Name = "ScLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoteSchool v0.5";
+            this.Load += new System.EventHandler(this.ScLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
