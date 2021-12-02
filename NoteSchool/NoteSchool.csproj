@@ -91,6 +91,12 @@
     <Compile Include="Layout\Schedule\ScAddClass.Designer.cs">
       <DependentUpon>ScAddClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\Schedule\ScEditClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Schedule\ScEditClass.Designer.cs">
+      <DependentUpon>ScEditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Schedule\ScSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Note\ScNote.resx">
       <DependentUpon>ScNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Schedule\ScAddClass.resx">
+      <DependentUpon>ScAddClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Schedule\ScEditClass.resx">
+      <DependentUpon>ScEditClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Schedule\ScSchedule.resx">
       <DependentUpon>ScSchedule.cs</DependentUpon>

@@ -15,7 +15,7 @@ namespace NoteSchool.DataBase
         private static String dbName = "dbNoteSchool;";
 
         //Nelson, Pablo, Kevin, Kike
-        private static String user = "Nelson";
+        private static String user = "Kevin";
 
 
         private static String connectionQuery;

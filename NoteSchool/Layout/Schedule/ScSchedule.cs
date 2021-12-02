@@ -22,19 +22,48 @@ namespace NoteSchool.Layout.Schedule
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            ScAddClass scAddClass = new ScAddClass();
-            scAddClass.Show();
+
         }
 
         private void ScSchedule_Load(object sender, EventArgs e) {
 
-            
+
 
 
         }
 
         private void butCreateSubject_Click(object sender, EventArgs e) {
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e) {
+            ScAddClass scAddClass = new ScAddClass();
+            scAddClass.Show();
+        }
+
+        private void pbEdit_Click(object sender, EventArgs e) {
+            ScEditClass scEditClass = new ScEditClass();
+            scEditClass.Show();
         }
     }
 }
