@@ -18,6 +18,7 @@ namespace NoteSchool.DataBase.Utilities
 
             //Aqui crean sus tablas
             SqlOpenHelper.ExecNonQuery(Tables.Subject.CREATE_TABLE_SUBJECT, sqlConnection);
+            SqlOpenHelper.ExecNonQuery(Tables.User.CREATE_TABLE_USER, sqlConnection);
 
             //EJEMPLO: SqlOpenHelper.ExecNonQuery(Tables.Subject.CREATE_TABLE_HOMEWORK, sqlConnection);
 

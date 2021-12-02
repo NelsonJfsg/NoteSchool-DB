@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NoteSchool.Layout.Home;
+using NoteSchool.Layout.Login;
 
 namespace NoteSchool.Main
 {
@@ -14,11 +14,11 @@ namespace NoteSchool.Main
         public static void Main()
         {
 
+        
             //ejecutar load.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ScHome());
-
+            Application.Run(new ScLogin());
         }
     }
 }
