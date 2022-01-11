@@ -15,6 +15,11 @@ namespace NoteSchool.Layout.Subject
     public partial class ScEditSubject : Form
     {
 
+        //Default text.
+        String defaultTextName = "Subject name";
+        String defaultTextTeacherName = "Teacher´s name";
+        String defaultTextQualfication = "Qualification scores";
+
         //Codigo para activar el doble buffer
         protected override CreateParams CreateParams {
             get {
@@ -59,10 +64,10 @@ namespace NoteSchool.Layout.Subject
             String tempSubjectName = tbSubjectName.Text;
             teacherName = tbTeacherName.Text;
             qualificationScores = tbQualificationScores.Text;
-            icon = cbIcon.Text;
-
+            
             DataBase.Tables.Subject.UPDATE_TABLE_SUBJECT(this, subjectName, tempSubjectName, teacherName, qualificationScores, icon);
             DataBase.Tables.Subject.fillDgv(tDGV);
+            this.Close();
             
 
         }
@@ -70,8 +75,106 @@ namespace NoteSchool.Layout.Subject
         //Fill data
         private void ScEditSubject_Load(object sender, EventArgs e) {
 
-            DataBase.Tables.Subject.SELECT_FROM_SUBJECT(subjectName , tbSubjectName, tbTeacherName, tbQualificationScores, cbIcon);
+            this.ActiveControl = lTitle;
+
+            DataBase.Tables.Subject.SELECT_FROM_SUBJECT(subjectName, tbSubjectName, tbTeacherName, tbQualificationScores);
+
+            tbSubjectName.ForeColor = Color.White;
+            tbTeacherName.ForeColor = Color.White;
+            tbQualificationScores.ForeColor = Color.White;
+
             
+        }
+
+        //Metodo para reinicar los textos por defecto.
+        public void resetText(TextBox tb, String text)
+        {
+
+            //Verificamos que el TB esté vacio.
+            if (tb.Text == "")
+            {
+
+                tb.ForeColor = (Color.DarkGray); //Cambiamos el color del TB
+                tb.Text = (text); //Reiniciamos el texto por defecto.
+
+            }
+
+        }
+
+        //Metodo para cambiar el color y limpiar el TB.
+        public void changeTextColor(TextBox tb, String text)
+        {
+
+            //Verificamos que los textos sean iguales.
+            if (tb.Text == text)
+            {
+
+                tb.Text = (""); //Limpiamos el TB.
+                tb.ForeColor = Color.White; //Cambiamos el color de la leta.
+
+            }
+
+        }
+
+        private void tbSubjectName_Click(object sender, EventArgs e)
+        {
+            changeTextColor(tbSubjectName, defaultTextName);
+        }
+
+        private void tbTeacherName_Click(object sender, EventArgs e)
+        {
+            changeTextColor(tbTeacherName, defaultTextTeacherName);
+        }
+
+        private void tbQualificationScores_Click(object sender, EventArgs e)
+        {
+            changeTextColor(tbQualificationScores, defaultTextQualfication);
+        }
+
+        private void tbSubjectName_Leave(object sender, EventArgs e)
+        {
+            resetText(tbSubjectName, defaultTextName);
+        }
+
+        private void tbTeacherName_Leave(object sender, EventArgs e)
+        {
+            resetText(tbTeacherName, defaultTextTeacherName);
+        }
+
+        private void tbQualificationScores_Leave(object sender, EventArgs e)
+        {
+            resetText(tbQualificationScores, defaultTextQualfication);
+        }
+
+        private void lTitle_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab) {
+                changeTextColor(tbSubjectName, defaultTextName);
+            }
+        }
+
+        private void tbSubjectName_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab)
+            {
+                changeTextColor(tbTeacherName, defaultTextTeacherName);
+            }
+        }
+
+        private void tbTeacherName_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab)
+            {
+                changeTextColor(tbQualificationScores, defaultTextQualfication);
+            }
+        }
+
+        private void butEditSubject_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab)
+            {
+                changeTextColor(tbSubjectName, defaultTextName);
+            }
         }
     }
 }

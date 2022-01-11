@@ -45,15 +45,8 @@ namespace NoteSchool.Layout.Home {
 
         private void ScHome_Load(object sender, EventArgs e) {
 
-            if (SqlOpenHelper.CheckConnection()) {
+            ChangeScreen(pbHome, scStart); //Set firt screen
 
-                DataBase.Utilities.Utilities.CreateAllTables();
-
-                ChangeScreen(pbHome, scStart); //Set firt screen
-
-            } else {
-                Application.Exit();
-            }
         }
 
         private void pbSubject_Click(object sender, EventArgs e) {  

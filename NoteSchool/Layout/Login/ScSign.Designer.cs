@@ -49,9 +49,12 @@ namespace NoteSchool.Layout.Login
             this.tbUserName.Multiline = true;
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(192, 27);
-            this.tbUserName.TabIndex = 0;
+            this.tbUserName.TabIndex = 1;
             this.tbUserName.Text = "User name";
             this.tbUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbUserName.Click += new System.EventHandler(this.tbUserName_Click);
+            this.tbUserName.Leave += new System.EventHandler(this.tbUserName_Leave);
+            this.tbUserName.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.tbUserName_PreviewKeyDown);
             // 
             // tbUserPassword
             // 
@@ -63,9 +66,11 @@ namespace NoteSchool.Layout.Login
             this.tbUserPassword.Multiline = true;
             this.tbUserPassword.Name = "tbUserPassword";
             this.tbUserPassword.Size = new System.Drawing.Size(192, 27);
-            this.tbUserPassword.TabIndex = 1;
+            this.tbUserPassword.TabIndex = 2;
             this.tbUserPassword.Text = "Password";
             this.tbUserPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbUserPassword.Click += new System.EventHandler(this.tbUserPassword_Click);
+            this.tbUserPassword.Leave += new System.EventHandler(this.tbUserPassword_Leave);
             // 
             // butSignUp
             // 
@@ -77,10 +82,11 @@ namespace NoteSchool.Layout.Login
             this.butSignUp.Location = new System.Drawing.Point(103, 344);
             this.butSignUp.Name = "butSignUp";
             this.butSignUp.Size = new System.Drawing.Size(139, 29);
-            this.butSignUp.TabIndex = 2;
+            this.butSignUp.TabIndex = 3;
             this.butSignUp.Text = "Sign Up";
             this.butSignUp.UseVisualStyleBackColor = false;
             this.butSignUp.Click += new System.EventHandler(this.butSignUp_Click);
+            this.butSignUp.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.butSignUp_PreviewKeyDown);
             // 
             // lTitle
             // 
@@ -90,8 +96,9 @@ namespace NoteSchool.Layout.Login
             this.lTitle.Location = new System.Drawing.Point(73, 23);
             this.lTitle.Name = "lTitle";
             this.lTitle.Size = new System.Drawing.Size(196, 25);
-            this.lTitle.TabIndex = 3;
+            this.lTitle.TabIndex = 0;
             this.lTitle.Text = "Create a new account";
+            this.lTitle.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.lTitle_PreviewKeyDown);
             // 
             // pbBack
             // 
@@ -131,6 +138,7 @@ namespace NoteSchool.Layout.Login
             this.Name = "ScSign";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ScSign";
+            this.Load += new System.EventHandler(this.ScSign_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

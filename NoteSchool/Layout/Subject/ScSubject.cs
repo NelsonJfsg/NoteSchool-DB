@@ -35,42 +35,33 @@ namespace NoteSchool.Layout.Subject
 
         //Load event
         private void ScSubject_Load(object sender, EventArgs e) {
+            this.ActiveControl = lTitle;
 
-            DataBase.Tables.Subject.fillDgv(dgvSubject);
+            DataBase.Tables.Subject.fillDgv(dgvHomework);
 
-            DataBase.Tables.Subject.setDesignDGV(dgvSubject);
+            DataBase.Tables.Subject.setDesignDGV(dgvHomework);
         }
 
         //Add click
         private void pbAddSubject_Click(object sender, EventArgs e) {
             
             ScAddSubject scAddSubject = new ScAddSubject();
-            scAddSubject.setDGV(dgvSubject);
+            scAddSubject.setDGV(dgvHomework);
             scAddSubject.Show();
 
-        }
-
-        //TEMPORAL
-        private void lTitle_Click(object sender, EventArgs e) {
-
-            DataBase.Tables.Subject.fillDgv(dgvSubject);
-
-            DataBase.Tables.Subject.setDesignDGV(dgvSubject);
         }
 
         //Delete click
         private void pbDeleteSubject_Click(object sender, EventArgs e) {
 
             //Var
-
-
-            if (dgvSubject.Rows.Count == 0) {
+            if (dgvHomework.Rows.Count == 0) {
 
                 MessageBox.Show("Select a subject.");
 
             } else {
 
-                DataBase.Tables.Subject.DELETE_SUBJECT(dgvSubject.CurrentRow.Cells[0].Value.ToString());
+                DataBase.Tables.Subject.DELETE_SUBJECT(dgvHomework.CurrentRow.Cells[0].Value.ToString());
                 updateDGV();
 
             }
@@ -80,10 +71,10 @@ namespace NoteSchool.Layout.Subject
         //Edit click
         private void pbEditSubject_Click(object sender, EventArgs e) {
 
-            if (dgvSubject.Rows.Count != 0) {
+            if (dgvHomework.Rows.Count != 0) {
 
-                ScEditSubject scEditSubject = new ScEditSubject(dgvSubject.CurrentRow.Cells[0].Value.ToString());
-                scEditSubject.setDGV(dgvSubject);
+                ScEditSubject scEditSubject = new ScEditSubject(dgvHomework.CurrentRow.Cells[1].Value.ToString());
+                scEditSubject.setDGV(dgvHomework);
                 scEditSubject.Show();
 
             } else {
@@ -97,9 +88,9 @@ namespace NoteSchool.Layout.Subject
         //Methods 
         public void updateDGV() {
 
-            DataBase.Tables.Subject.fillDgv(dgvSubject);
+            DataBase.Tables.Subject.fillDgv(dgvHomework);
 
-            DataBase.Tables.Subject.setDesignDGV(dgvSubject);
+            DataBase.Tables.Subject.setDesignDGV(dgvHomework);
 
         }
     }

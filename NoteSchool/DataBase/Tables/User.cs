@@ -20,29 +20,19 @@ namespace NoteSchool.DataBase.Tables
         private static String tableName = "tUser";
 
         //Atributes
+        private static String tIdUser = "idUser";
         private static String tUserName = "userName";
         private static String tUserPassword = "userPassword";
-
-        //Data base function
-        private static String IF_EXISTS = "IF object_id('" + tableName + "') IS NULL";
 
         //Query select root
         private static String SELECT_USER_NAME = "SELECT (" + tUserName + ") FROM " + tableName + " WHERE " + tUserName + " = ";
         private static String SELECT_ALL_USER = "SELECT * FROM " + tableName + " WHERE " + tUserName + " = ";
-
-
-        //Query to create table
-        public static String CREATE_TABLE_USER = IF_EXISTS + " CREATE TABLE " + tableName + "(" + 
-            tUserName + " VARCHAR(50) NOT NULL PRIMARY KEY, " +
-            tUserPassword + " VARCHAR(50) NOT NULL);";
 
         //Root query to insert into table
         private static String INSERT_INTO = "INSERT INTO " + tableName + "(" +
             tUserName + ", " +
             tUserPassword + 
             ") VALUES (";
-
-
 
         //Method to insert into table
         public static void INSERT_INTO_USER(Form sc, String userName, String password) {
@@ -64,6 +54,7 @@ namespace NoteSchool.DataBase.Tables
                     String query = INSERT_INTO + "'" + userName + "', '" + password + "');";
 
                     SqlOpenHelper.ExecNonQuery(query, sqlConnection);
+
                     sqlConnection.Close();
                     sc.Dispose();
                     ScLogin scLogin = new ScLogin();
@@ -124,8 +115,8 @@ namespace NoteSchool.DataBase.Tables
             while (sqlDataReader.Read()) {
 
                 if (sqlDataReader != null) {
-                    sqlUserName = sqlDataReader.GetString(0);
-                    sqlPasword = sqlDataReader.GetString(1);
+                    sqlUserName = sqlDataReader.GetString(1);
+                    sqlPasword = sqlDataReader.GetString(2);
                 }
 
             }
@@ -145,18 +136,6 @@ namespace NoteSchool.DataBase.Tables
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

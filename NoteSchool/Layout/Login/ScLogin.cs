@@ -19,6 +19,9 @@ namespace NoteSchool.Layout.Login
         private String userName;
         private String userPassword;
 
+        private String dfUserName = "User name";
+        private String dfPassword = "Password";
+
         public ScLogin() {
             InitializeComponent();
         }
@@ -51,7 +54,87 @@ namespace NoteSchool.Layout.Login
 
         private void ScLogin_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = lTitle;
             Utilities.CreateAllTables();
+        }
+
+        private void tbUserName_Click(object sender, EventArgs e)
+        {
+            changeTextColor(tbUserName, dfUserName);
+        }
+
+
+
+
+
+
+
+
+        //Metodo para reinicar los textos por defecto.
+        public void resetText(TextBox tb, String text)
+        {
+
+            //Verificamos que el TB esté vacio.
+            if (tb.Text == "")
+            {
+
+                tb.ForeColor = (Color.DarkGray); //Cambiamos el color del TB
+                tb.Text = (text); //Reiniciamos el texto por defecto.
+
+            }
+
+        }
+
+        //Metodo para cambiar el color y limpiar el TB.
+        public void changeTextColor(TextBox tb, String text)
+        {
+
+            //Verificamos que los textos sean iguales.
+            if (tb.Text == text)
+            {
+
+                tb.Text = (""); //Limpiamos el TB.
+                tb.ForeColor = Color.White; //Cambiamos el color de la leta.
+
+            }
+
+        }
+
+        private void tbUserName_Leave(object sender, EventArgs e)
+        {
+            resetText(tbUserName, dfUserName);
+        }
+
+        private void lTitle_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab) {
+                changeTextColor(tbUserName, dfUserName);
+            }
+        }
+
+        private void tbUserName_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab) {
+                changeTextColor(tbPassword, dfPassword);
+            }
+        }
+
+        private void tbPassword_Click(object sender, EventArgs e)
+        {
+            changeTextColor(tbPassword, dfPassword);
+        }
+
+        private void tbPassword_Leave(object sender, EventArgs e)
+        {
+            resetText(tbPassword, dfPassword);
+        }
+
+        private void butLogin_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab)
+            {
+                changeTextColor(tbUserName, dfUserName);
+            }
         }
     }
 }

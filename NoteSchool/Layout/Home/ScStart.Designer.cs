@@ -44,7 +44,7 @@ namespace NoteSchool.Layout.Home
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(17, 46);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(763, 160);
+            this.dataGridView1.Size = new System.Drawing.Size(736, 160);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
@@ -73,9 +73,9 @@ namespace NoteSchool.Layout.Home
             this.cbDayList.Location = new System.Drawing.Point(625, 252);
             this.cbDayList.Name = "cbDayList";
             this.cbDayList.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbDayList.Size = new System.Drawing.Size(155, 29);
+            this.cbDayList.Size = new System.Drawing.Size(128, 29);
             this.cbDayList.TabIndex = 2;
-            this.cbDayList.Text = "Seleccione un dia";
+            this.cbDayList.Text = "          Day";
             // 
             // lHomework
             // 
@@ -104,7 +104,7 @@ namespace NoteSchool.Layout.Home
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.ClientSize = new System.Drawing.Size(765, 451);
             this.Controls.Add(this.lDay);
             this.Controls.Add(this.lHomework);
             this.Controls.Add(this.cbDayList);

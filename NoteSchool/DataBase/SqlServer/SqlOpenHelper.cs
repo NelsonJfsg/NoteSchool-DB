@@ -15,7 +15,7 @@ namespace NoteSchool.DataBase
         private static String dbName = "dbNoteSchool;";
 
         //Nelson, Pablo, Kevin, Kike
-        private static String user = "Kevin";
+        private static String user = "Nelson";
 
         private static String connectionQuery;
 
@@ -62,9 +62,13 @@ namespace NoteSchool.DataBase
         }
 
         public static void ExecNonQuery(String query, SqlConnection sqlConnection) {
-
-            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-            sqlCommand.ExecuteNonQuery();
+            try{
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+            } catch (Exception err) {
+                MessageBox.Show("Error:\n" + err);
+            }
+            
 
         }
 

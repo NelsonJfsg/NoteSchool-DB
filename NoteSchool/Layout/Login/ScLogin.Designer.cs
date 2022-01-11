@@ -50,6 +50,7 @@ namespace NoteSchool.Layout.Login
             this.lTitle.Size = new System.Drawing.Size(232, 25);
             this.lTitle.TabIndex = 0;
             this.lTitle.Text = "¡Welcome to NoteSchool!";
+            this.lTitle.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.lTitle_PreviewKeyDown);
             // 
             // butLogin
             // 
@@ -61,10 +62,11 @@ namespace NoteSchool.Layout.Login
             this.butLogin.Location = new System.Drawing.Point(103, 344);
             this.butLogin.Name = "butLogin";
             this.butLogin.Size = new System.Drawing.Size(139, 29);
-            this.butLogin.TabIndex = 1;
+            this.butLogin.TabIndex = 3;
             this.butLogin.Text = "Log in";
             this.butLogin.UseVisualStyleBackColor = false;
             this.butLogin.Click += new System.EventHandler(this.butLogin_Click);
+            this.butLogin.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.butLogin_PreviewKeyDown);
             // 
             // tbUserName
             // 
@@ -76,9 +78,12 @@ namespace NoteSchool.Layout.Login
             this.tbUserName.Multiline = true;
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(192, 27);
-            this.tbUserName.TabIndex = 2;
+            this.tbUserName.TabIndex = 1;
             this.tbUserName.Text = "User name";
             this.tbUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbUserName.Click += new System.EventHandler(this.tbUserName_Click);
+            this.tbUserName.Leave += new System.EventHandler(this.tbUserName_Leave);
+            this.tbUserName.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.tbUserName_PreviewKeyDown);
             // 
             // tbPassword
             // 
@@ -91,9 +96,11 @@ namespace NoteSchool.Layout.Login
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '●';
             this.tbPassword.Size = new System.Drawing.Size(192, 27);
-            this.tbPassword.TabIndex = 3;
+            this.tbPassword.TabIndex = 2;
             this.tbPassword.Text = "Password";
             this.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbPassword.Click += new System.EventHandler(this.tbPassword_Click);
+            this.tbPassword.Leave += new System.EventHandler(this.tbPassword_Leave);
             // 
             // lSignUp
             // 

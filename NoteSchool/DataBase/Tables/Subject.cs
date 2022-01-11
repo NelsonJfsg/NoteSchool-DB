@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Collections;
 
 namespace NoteSchool.DataBase.Tables
 {
@@ -21,71 +22,102 @@ namespace NoteSchool.DataBase.Tables
         private static SqlCommand sqlCommand;
 
         //Table name
-        private static String tableName = "tSubject";
+        public static String tableName = "tSubject";
 
         //Atributes
-        private static String tName = "name";
+        private static String tId = "idSubject";
+        public static String tName = "name";
         private static String tTeacherName = "teacherName";
         private static String tQualificationScores = "qualificationScores";
-        private static String tIcon = "icon";
+        
+        //Views
+        private static String tableSubject = "tableSubject";
 
         //Data base funcion
         private static String CREATE_TABLE = "CREATE TABLE ";
         private static String IF_TABLE_EXISTS = "IF object_id ('" + tableName + "') IS NULL ";
         public static String DROP_TABLE_SUBJECT = "DROP TABLE " + tableName;
-        public static String SELECT_SUBJECT = "SELECT " + tName + ", " + tTeacherName + ", " + tQualificationScores + ", " + tIcon + " FROM " + tableName;
+        public static String SELECT_SUBJECT = "SELECT * FROM " + tableSubject;
         public static String SELECT_WHERE_SUBJECT = SELECT_SUBJECT + " WHERE "  + tName + " = ";
         public static String UPDATE_SUBJECT = "UPDATE " + tableName + " SET ";
-        
-        public static String SELECT_SUBJECTNAME = "SELECT (" + tName + ") FROM " + tableName + " WHERE " + tName + " = ";
 
-        //Create table tSubject
-        public static String CREATE_TABLE_SUBJECT = IF_TABLE_EXISTS + CREATE_TABLE + tableName + " (" +
-            tName + " VARCHAR (50) PRIMARY KEY NOT NULL, " +
-            tTeacherName + " VARCHAR (80), " +
-            tQualificationScores + " TEXT, " +
-            tIcon + " VARCHAR (100) NOT NULL );";
+        public static String SELECT_ID = "SELECT " + tId + " FROM " + tableName + " WHERE " + tName + " = ";
+
+        public static String SELECT_SUBJECTNAME = "SELECT (" + tName + ") FROM " + tableName + " WHERE " + tName + " = ";
 
         //Insert table tSubject
         public static String INSERT_INTO = "INSERT INTO " + tableName + "( " + 
             tName + ", " + 
             tTeacherName + ", " + 
-            tQualificationScores + ", " +
-            tIcon + ") VALUES ( ";
+            tQualificationScores + ") VALUES ( ";
 
+        public static int GET_SUBJECT_ID(String subjectName) {
 
-        public static void INSERT_INTO_SUBJECT(Form Sc, String name, String teacherName, String qualificationScores, String icon) {
+            int id = 0;
+            String query = SELECT_ID + "'" + subjectName + "';";
 
-            checkName = checkIfExists(name);
+            sqlConnection = SqlOpenHelper.OpenConnection();
+            sqlCommand = SqlOpenHelper.ExecNonQueryReturn(query, sqlConnection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-            if (checkName == true) {
+            while (sqlDataReader.Read())
+            {
 
-                MessageBox.Show("This subject already exists.");
+                id = sqlDataReader.GetInt32(0);
 
-            } else { 
-
-                String query = INSERT_INTO +
-                    "'" + name + "', " +
-                    "'" + teacherName + "', " +
-                    "'" + qualificationScores + "', " +
-                    "'" + icon + "' ) ";
-
-                sqlConnection = SqlOpenHelper.OpenConnection();
-                SqlOpenHelper.ExecNonQuery(query, sqlConnection);
-                sqlConnection.Close();
-
-                Sc.Close();
             }
+
+            return id;
+
         }
 
-        public static void UPDATE_SUBJECT_TABLE(String name, String teacherName, String qualificationScores, String icon){
+        public static String GET_SUBJECT_NAME(int id) {
+
+            //Vars
+            String subjectName = null;
+
+            String query = "SELECT " + tName + " FROM " + tableSubject + " WHERE " + tId + " = " + id;
+
+            sqlConnection = SqlOpenHelper.OpenConnection();
+            sqlCommand = SqlOpenHelper.ExecNonQueryReturn(query, sqlConnection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+
+                subjectName = sqlDataReader.GetString(0);
+
+            }
+
+            return subjectName;
+
+        }
+
+
+
+        public static void INSERT_INTO_SUBJECT(Form Sc, String name, String teacherName, String qualificationScores) {
+
+            String query = INSERT_INTO +
+                "'" + name + "', " +
+                "" + teacherName + ", " +
+                "" + qualificationScores + ") ";
+
+            sqlConnection = SqlOpenHelper.OpenConnection();
+            SqlOpenHelper.ExecNonQuery(query, sqlConnection);
+            sqlConnection.Close();
+
+            Sc.Close();
+            
+        }
+
+
+        public static void UPDATE_SUBJECT_TABLE(String name, String teacherName, String qualificationScores){
             
             
             String query = UPDATE_SUBJECT + 
             tName + " = " + "'" + name + "'" +
             tTeacherName + " = " + "'" + teacherName + "'" +
-            tQualificationScores + " = " + "'" + qualificationScores + "'" +
-            tIcon + " = " + "'" + icon + "';";
+            tQualificationScores + " = " + "'" + qualificationScores + "'" + "';";
 
             sqlConnection = SqlOpenHelper.OpenConnection();
             SqlOpenHelper.ExecNonQuery(query, sqlConnection);
@@ -93,24 +125,24 @@ namespace NoteSchool.DataBase.Tables
 
         }
 
-        public static void DELETE_SUBJECT(String name){
-
-            String query = "DELETE FROM " + tableName + " WHERE " + tName + " = '" + name + "';";
+        public static void DELETE_SUBJECT(String id){
+            
+            String query = "DELETE FROM " + tableName + " WHERE " + tId + " = " + id + ";";
 
             sqlConnection = SqlOpenHelper.OpenConnection();
             SqlOpenHelper.ExecNonQuery(query, sqlConnection);
-            MessageBox.Show("Successfully removed.");
+
             sqlConnection.Close();
+
 
         }
         
-        public static void SELECT_FROM_SUBJECT(String name, TextBox tbName, TextBox tbTeacherName, TextBox tbQualificationScores, ComboBox cbIcon) {
+        public static void SELECT_FROM_SUBJECT(String name, TextBox tbName, TextBox tbTeacherName, TextBox tbQualificationScores) {
 
             //Atributes
             String subjectName;
             String teacherName;
             String qualificationScores;
-            String icon;
 
             String query = SELECT_WHERE_SUBJECT + "'" + name + "'; ";
 
@@ -124,8 +156,7 @@ namespace NoteSchool.DataBase.Tables
                 tbName.Text = sqlDataReader[tName].ToString();
                 tbTeacherName.Text = sqlDataReader[tTeacherName].ToString();
                 tbQualificationScores.Text = sqlDataReader[tQualificationScores].ToString();
-                cbIcon.Text = sqlDataReader[tIcon].ToString();
-
+                
             }
 
             sqlConnection.Close();
@@ -151,8 +182,7 @@ namespace NoteSchool.DataBase.Tables
             String query = UPDATE_SUBJECT + 
                 tName + " = '" + tempSubjectName + "', " +
                 tTeacherName + " = '" + teacherName + "', " +
-                tQualificationScores + " = '" + qualificationScores + "', " +
-                tIcon + " = '" + icon + "' WHERE " + tName + " = '" + subjectName + "';";
+                tQualificationScores + " = '" + qualificationScores + "' WHERE " + tName + " = '" + subjectName + "';";
 
             sqlConnection = SqlOpenHelper.OpenConnection();
             
@@ -182,23 +212,29 @@ namespace NoteSchool.DataBase.Tables
 
         private static Boolean checkIfExists(String subjectName) {
 
+            //Vars
             Boolean exists = false;
 
-            sqlConnection = SqlOpenHelper.OpenConnection();
+            sqlConnection = SqlOpenHelper.OpenConnection(); //Set connection
+
+            //Ejecute query.
             sqlCommand = SqlOpenHelper.ExecNonQueryReturn(SELECT_SUBJECTNAME + "'" + subjectName + "'", sqlConnection);
             
+            //Read command
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
+            //Check if the name exists in db.
             while (sqlDataReader.Read()) {
                 if (sqlDataReader != null) {
                     exists = true;
                 } else {
                     exists = false;
                 }
-
             }
 
-            sqlDataReader.Close();
+            sqlDataReader.Close(); //Close db
+            
+            //Result
             return exists;
 
         }
@@ -209,21 +245,19 @@ namespace NoteSchool.DataBase.Tables
             dgv.AllowUserToAddRows = false; //Desactva añadir una fila.
             DataGridViewColumn column;
 
-            column = dgv.Columns[0];
+            dgv.Columns[0].Visible = false;
+            
+            column = dgv.Columns[1];
             column.HeaderText = "Subject name";
             column.Width = 199;
 
-            column = dgv.Columns[1];
+            column = dgv.Columns[2];
             column.HeaderText = "Teacher name";
             column.Width = 166;
 
-            column = dgv.Columns[2];
-            column.HeaderText = "Qualification scores";
-            column.Width = 232;
-
             column = dgv.Columns[3];
-            column.HeaderText = "Icon";
-            column.Width = 142;
+            column.HeaderText = "Qualification scores";
+            column.Width = 374;
 
             //Estilo de texto para la tabla.
             dgv.ForeColor = Color.White;
@@ -232,6 +266,29 @@ namespace NoteSchool.DataBase.Tables
             dgv.AllowUserToResizeColumns = false;
             dgv.AllowUserToResizeRows = false;
         }
+
+        public static void getAllSubjects(ComboBox cb) {
+
+            //ArrayList
+            ArrayList listOfDays = new ArrayList();
+
+            sqlConnection = DataBase.SqlOpenHelper.OpenConnection();
+            sqlCommand = DataBase.SqlOpenHelper.ExecNonQueryReturn("SELECT name FROM tSubject;", sqlConnection);
+
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                listOfDays.Add(sqlDataReader["name"]);
+            }
+
+            for (int i = 0; i < listOfDays.Count; i++)
+            {
+                cb.Items.Add(listOfDays[i]);
+            }
+
+        }
+
 
     }
 }

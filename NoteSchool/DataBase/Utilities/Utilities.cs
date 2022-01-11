@@ -4,25 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace NoteSchool.DataBase.Utilities
 {
     class Utilities
     {
 
+        //Sql utilities.
         private static SqlConnection sqlConnection;
 
+        //Method to create all tables in db.
         public static void CreateAllTables() {
 
-            sqlConnection = SqlOpenHelper.OpenConnection();
+            try {
 
-            //Aqui crean sus tablas
-            SqlOpenHelper.ExecNonQuery(Tables.Subject.CREATE_TABLE_SUBJECT, sqlConnection);
-            SqlOpenHelper.ExecNonQuery(Tables.User.CREATE_TABLE_USER, sqlConnection);
+                sqlConnection = SqlOpenHelper.OpenConnection();
 
-            //EJEMPLO: SqlOpenHelper.ExecNonQuery(Tables.Subject.CREATE_TABLE_HOMEWORK, sqlConnection);
+                SqlOpenHelper.ExecNonQuery(StoredProcedure.CreateAllTables, sqlConnection);
+                
+            } catch (Exception err) {
 
-            sqlConnection.Close();
+                MessageBox.Show("Excepcion encontrada: \n" + err);
+
+            } finally {
+                
+                sqlConnection.Close();
+            
+            }
+
 
         }
 
