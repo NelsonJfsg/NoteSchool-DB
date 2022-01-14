@@ -33,9 +33,12 @@ namespace NoteSchool.DataBase.Tables
         //Views
         private static String tableSubject = "tableSubject";
 
+        //Stored Procedures
+        private static String InsertIntoSubject = "EXEC InsertIntoSubject ";
+        private static String UpdateSubject = "EXEC UpdateSubject ";
+        private static String DeleteSubject = "EXEC DeleteSubject ";
+
         //Data base funcion
-        private static String CREATE_TABLE = "CREATE TABLE ";
-        private static String IF_TABLE_EXISTS = "IF object_id ('" + tableName + "') IS NULL ";
         public static String DROP_TABLE_SUBJECT = "DROP TABLE " + tableName;
         public static String SELECT_SUBJECT = "SELECT * FROM " + tableSubject;
         public static String SELECT_WHERE_SUBJECT = SELECT_SUBJECT + " WHERE "  + tName + " = ";
@@ -97,10 +100,10 @@ namespace NoteSchool.DataBase.Tables
 
         public static void INSERT_INTO_SUBJECT(Form Sc, String name, String teacherName, String qualificationScores) {
 
-            String query = INSERT_INTO +
+            String query = InsertIntoSubject +
                 "'" + name + "', " +
-                "" + teacherName + ", " +
-                "" + qualificationScores + ") ";
+                "'" + teacherName + "', " +
+                "'" + qualificationScores + "'";
 
             sqlConnection = SqlOpenHelper.OpenConnection();
             SqlOpenHelper.ExecNonQuery(query, sqlConnection);
@@ -110,31 +113,15 @@ namespace NoteSchool.DataBase.Tables
             
         }
 
-
-        public static void UPDATE_SUBJECT_TABLE(String name, String teacherName, String qualificationScores){
-            
-            
-            String query = UPDATE_SUBJECT + 
-            tName + " = " + "'" + name + "'" +
-            tTeacherName + " = " + "'" + teacherName + "'" +
-            tQualificationScores + " = " + "'" + qualificationScores + "'" + "';";
-
-            sqlConnection = SqlOpenHelper.OpenConnection();
-            SqlOpenHelper.ExecNonQuery(query, sqlConnection);
-            sqlConnection.Close();
-
-        }
-
         public static void DELETE_SUBJECT(String id){
-            
-            String query = "DELETE FROM " + tableName + " WHERE " + tId + " = " + id + ";";
+
+            String query = DeleteSubject + id;
 
             sqlConnection = SqlOpenHelper.OpenConnection();
             SqlOpenHelper.ExecNonQuery(query, sqlConnection);
 
             sqlConnection.Close();
-
-
+            
         }
         
         public static void SELECT_FROM_SUBJECT(String name, TextBox tbName, TextBox tbTeacherName, TextBox tbQualificationScores) {
@@ -179,10 +166,7 @@ namespace NoteSchool.DataBase.Tables
 
         public static void UPDATE_TABLE_SUBJECT(Form form, String subjectName, String tempSubjectName, String teacherName, String qualificationScores, String icon) {
 
-            String query = UPDATE_SUBJECT + 
-                tName + " = '" + tempSubjectName + "', " +
-                tTeacherName + " = '" + teacherName + "', " +
-                tQualificationScores + " = '" + qualificationScores + "' WHERE " + tName + " = '" + subjectName + "';";
+            String query = UpdateSubject + "'" + subjectName + "', '" + tempSubjectName + "', '" + teacherName + "', '" + qualificationScores + "';";  
 
             sqlConnection = SqlOpenHelper.OpenConnection();
             
@@ -284,7 +268,11 @@ namespace NoteSchool.DataBase.Tables
 
             for (int i = 0; i < listOfDays.Count; i++)
             {
-                cb.Items.Add(listOfDays[i]);
+
+                if (!cb.Items.Contains(listOfDays[i])) {
+                    cb.Items.Add(listOfDays[i]);
+                }
+
             }
 
         }

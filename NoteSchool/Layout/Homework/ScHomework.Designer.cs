@@ -29,6 +29,7 @@ namespace NoteSchool.Layout.Homework
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScHomework));
             this.lTitle = new System.Windows.Forms.Label();
             this.dgvHomework = new System.Windows.Forms.DataGridView();
             this.cbSubject = new System.Windows.Forms.ComboBox();
@@ -56,6 +57,7 @@ namespace NoteSchool.Layout.Homework
             // 
             this.dgvHomework.AllowUserToResizeColumns = false;
             this.dgvHomework.AllowUserToResizeRows = false;
+            this.dgvHomework.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
             this.dgvHomework.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -103,6 +105,7 @@ namespace NoteSchool.Layout.Homework
             this.cbSubject.Size = new System.Drawing.Size(121, 29);
             this.cbSubject.TabIndex = 14;
             this.cbSubject.SelectedIndexChanged += new System.EventHandler(this.cbSubject_SelectedIndexChanged);
+            this.cbSubject.Click += new System.EventHandler(this.cbSubject_Click);
             // 
             // pbAddSubject
             // 
@@ -153,7 +156,9 @@ namespace NoteSchool.Layout.Homework
             this.Controls.Add(this.pbEditSubject);
             this.Controls.Add(this.pbDeleteSubject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScHomework";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ScHomework";
             this.Load += new System.EventHandler(this.ScHomework_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomework)).EndInit();

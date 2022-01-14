@@ -65,10 +65,16 @@ namespace NoteSchool.DataBase
             try{
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
-            } catch (Exception err) {
-                MessageBox.Show("Error:\n" + err);
             }
-            
+            catch (SqlException odbcEx)
+            {
+                MessageBox.Show("DB EXCEPTION: \n" + odbcEx);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something was wrong.");
+            }
+
 
         }
 

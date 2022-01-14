@@ -29,6 +29,7 @@ namespace NoteSchool.Layout.Schedule
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScAddClass));
             this.lHomework = new System.Windows.Forms.Label();
             this.cbClassname = new System.Windows.Forms.ComboBox();
             this.tbLink = new System.Windows.Forms.TextBox();
@@ -273,6 +274,7 @@ namespace NoteSchool.Layout.Schedule
             this.Controls.Add(this.tbLink);
             this.Controls.Add(this.cbClassname);
             this.Controls.Add(this.lHomework);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScAddClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoteSchool - Add class";

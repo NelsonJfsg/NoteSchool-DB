@@ -26,6 +26,7 @@ namespace NoteSchool.Layout.Subject
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScAddSubject));
             this.tbSubjectName = new System.Windows.Forms.TextBox();
             this.tbTeacherName = new System.Windows.Forms.TextBox();
             this.tbQualificationScores = new System.Windows.Forms.TextBox();
@@ -132,11 +133,12 @@ namespace NoteSchool.Layout.Subject
             this.Controls.Add(this.tbTeacherName);
             this.Controls.Add(this.tbSubjectName);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ScAddSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoteSchool v0.2.1 - Add subject";
+            this.Text = "NoteSchool - Add subject";
             this.Load += new System.EventHandler(this.ScAddSubject_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -29,6 +29,7 @@ namespace NoteSchool.Layout.Login
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScSign));
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbUserPassword = new System.Windows.Forms.TextBox();
             this.butSignUp = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@ namespace NoteSchool.Layout.Login
             this.tbUserPassword.Location = new System.Drawing.Point(78, 280);
             this.tbUserPassword.Multiline = true;
             this.tbUserPassword.Name = "tbUserPassword";
+            this.tbUserPassword.PasswordChar = '●';
             this.tbUserPassword.Size = new System.Drawing.Size(192, 27);
             this.tbUserPassword.TabIndex = 2;
             this.tbUserPassword.Text = "Password";
@@ -135,6 +137,7 @@ namespace NoteSchool.Layout.Login
             this.Controls.Add(this.tbUserPassword);
             this.Controls.Add(this.tbUserName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScSign";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ScSign";

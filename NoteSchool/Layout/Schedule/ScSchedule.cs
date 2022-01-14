@@ -132,5 +132,10 @@ namespace NoteSchool.Layout.Schedule
             DataBase.Tables.Schedule.DELETE_CLASS(id);
             DataBase.Tables.Schedule.FUNCTION_SELECT(dgvSchedule, lDay.Text);
         }
+
+        private void dgvSchedule_DoubleClick(object sender, EventArgs e)
+        {
+            DataBase.Tables.Schedule.openLink(dgvSchedule);
+        }
     }
 }

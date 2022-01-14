@@ -15,5 +15,14 @@ namespace NoteSchool.Layout.Information
         public ScInformation() {
             InitializeComponent();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Jfsg");
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

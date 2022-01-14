@@ -243,6 +243,16 @@ namespace NoteSchool.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LOGO_PARA_ICO {
+            get {
+                object obj = ResourceManager.GetObject("LOGO PARA ICO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Mark_Added {
             get {
                 object obj = ResourceManager.GetObject("Mark_Added", resourceCulture);

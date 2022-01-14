@@ -29,6 +29,7 @@ namespace NoteSchool.Layout.Schedule
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScEditClass));
             this.lHomework = new System.Windows.Forms.Label();
             this.butDone = new System.Windows.Forms.Button();
             this.tbEndtime = new System.Windows.Forms.TextBox();
@@ -148,6 +149,8 @@ namespace NoteSchool.Layout.Schedule
             this.Controls.Add(this.tbLink);
             this.Controls.Add(this.cbClassname);
             this.Controls.Add(this.lHomework);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScEditClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoteSchool - Edit class";

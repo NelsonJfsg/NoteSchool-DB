@@ -28,16 +28,22 @@ namespace NoteSchool.Layout.Homework
         private void ScHomework_Load(object sender, EventArgs e)
         {
 
+            this.ActiveControl = lTitle;
 
-            DataBase.Tables.Subject.getAllSubjects(cbSubject);
+            try {
+                DataBase.Tables.Subject.getAllSubjects(cbSubject);
 
-            int id = DataBase.Tables.Subject.GET_SUBJECT_ID(cbSubject.Text);
+                cbSubject.SelectedIndex = 0;
 
-            DataBase.Tables.Homework.SELECT_HOMEWORK(id, dgvHomework);
-            DataBase.Tables.Homework.setDesignDGV(dgvHomework);
+                int id = DataBase.Tables.Subject.GET_SUBJECT_ID(cbSubject.Text);
 
-            cbSubject.SelectedIndex = 0;
+                DataBase.Tables.Homework.SELECT_HOMEWORK(id, dgvHomework);
 
+            } catch (Exception err) {
+
+                MessageBox.Show("First add a new subject.");
+                
+            }
 
         }
 
@@ -47,33 +53,6 @@ namespace NoteSchool.Layout.Homework
             int id = DataBase.Tables.Subject.GET_SUBJECT_ID(cbSubject.Text);
 
             DataBase.Tables.Homework.SELECT_HOMEWORK(id, dgvHomework);
-
-            dgvHomework.AllowUserToAddRows = false; //Desactva añadir una fila.
-            DataGridViewColumn column;
-
-            dgvHomework.Columns[0].Visible = false;
-            dgvHomework.Columns[5].Visible = false;
-
-            /*
-            column = dgvHomework.Columns[1];
-            column.HeaderText = "Subject name";
-            column.Width = 199;
-
-            column = dgvHomework.Columns[2];
-            column.HeaderText = "Teacher name";
-            column.Width = 166;
-
-            column = dgvHomework.Columns[3];
-            column.HeaderText = "Qualification scores";
-            column.Width = 374;
-            */
-
-            //Estilo de texto para la tabla.
-            dgvHomework.ForeColor = Color.White;
-            dgvHomework.BackgroundColor = Color.FromArgb(28, 39, 43);
-            dgvHomework.DefaultCellStyle.BackColor = Color.FromArgb(28, 39, 43);
-            dgvHomework.AllowUserToResizeColumns = false;
-            dgvHomework.AllowUserToResizeRows = false;
 
         }
 
@@ -92,6 +71,11 @@ namespace NoteSchool.Layout.Homework
         {
             ScEditHomework scEditHomework = new ScEditHomework(Int32.Parse(dgvHomework.CurrentRow.Cells[0].Value.ToString()), dgvHomework, cbSubject);
             scEditHomework.Show();
+        }
+
+        private void cbSubject_Click(object sender, EventArgs e)
+        {
+            DataBase.Tables.Subject.getAllSubjects(cbSubject);
         }
     }
 }

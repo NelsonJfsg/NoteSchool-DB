@@ -26,6 +26,7 @@ namespace NoteSchool.Layout.Subject
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScEditSubject));
             this.lQualificationScores = new System.Windows.Forms.Label();
             this.lTitle = new System.Windows.Forms.Label();
             this.butEditSubject = new System.Windows.Forms.Button();
@@ -131,13 +132,15 @@ namespace NoteSchool.Layout.Subject
             this.Controls.Add(this.tbQualificationScores);
             this.Controls.Add(this.tbTeacherName);
             this.Controls.Add(this.tbSubjectName);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(348, 520);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(348, 520);
             this.Name = "ScEditSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoteSchool v0.2.1 - Edit subject";
+            this.Text = "NoteSchool - Edit subject";
             this.Load += new System.EventHandler(this.ScEditSubject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

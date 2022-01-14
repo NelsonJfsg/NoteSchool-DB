@@ -51,6 +51,7 @@ namespace NoteSchool.Layout.Homework
 
         private void ScAddHomework_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = label1;
             DataBase.Tables.Subject.getAllSubjects(cbSubject);
 
             cbSubject.SelectedIndex = 0;

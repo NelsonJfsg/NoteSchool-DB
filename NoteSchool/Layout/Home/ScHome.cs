@@ -26,7 +26,6 @@ namespace NoteSchool.Layout.Home {
         private static ScSubject scSubject = new ScSubject();
         private static ScSchedule scSchedule = new ScSchedule();
         private static ScHomework scHomework = new ScHomework();
-        private static ScNote scNote = new ScNote();
         private static ScInformation scInformation = new ScInformation();
 
         //Save picture picture box in a list.
@@ -56,14 +55,13 @@ namespace NoteSchool.Layout.Home {
         }
 
         private void pbHome_Click(object sender, EventArgs e) {
-            
+
             ChangeScreen(pbHome, scStart);
 
         }
 
         private void pbNote_Click(object sender, EventArgs e) {
             
-            ChangeScreen(pbNote, scNote);
 
         }
 
@@ -89,7 +87,6 @@ namespace NoteSchool.Layout.Home {
         private void fillPictureBoxList() {
 
             itemList.Add(pbHome);
-            itemList.Add(pbNote);
             itemList.Add(pbSubject);
             itemList.Add(pbSchedule);
             itemList.Add(pbInformation);

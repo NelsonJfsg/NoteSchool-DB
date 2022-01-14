@@ -29,6 +29,7 @@ namespace NoteSchool.Layout.Homework
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScAddHomework));
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.rtBody = new System.Windows.Forms.RichTextBox();
             this.cbSubject = new System.Windows.Forms.ComboBox();
@@ -45,17 +46,17 @@ namespace NoteSchool.Layout.Homework
             // tbTitle
             // 
             this.tbTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
-            this.tbTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTitle.ForeColor = System.Drawing.Color.White;
-            this.tbTitle.Location = new System.Drawing.Point(90, 64);
-            this.tbTitle.Multiline = true;
+            this.tbTitle.Location = new System.Drawing.Point(88, 65);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(221, 29);
+            this.tbTitle.Size = new System.Drawing.Size(221, 27);
             this.tbTitle.TabIndex = 0;
             // 
             // rtBody
             // 
             this.rtBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
+            this.rtBody.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtBody.ForeColor = System.Drawing.Color.White;
             this.rtBody.Location = new System.Drawing.Point(29, 134);
             this.rtBody.Name = "rtBody";
@@ -114,7 +115,7 @@ namespace NoteSchool.Layout.Homework
             this.cbStatus.Items.AddRange(new object[] {
             "Unfilled",
             "Complete"});
-            this.cbStatus.Location = new System.Drawing.Point(108, 410);
+            this.cbStatus.Location = new System.Drawing.Point(107, 408);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 29);
             this.cbStatus.TabIndex = 5;
@@ -191,7 +192,9 @@ namespace NoteSchool.Layout.Homework
             this.Controls.Add(this.cbSubject);
             this.Controls.Add(this.rtBody);
             this.Controls.Add(this.tbTitle);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScAddHomework";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoteSchool - Add homework";

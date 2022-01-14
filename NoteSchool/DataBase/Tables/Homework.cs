@@ -35,6 +35,7 @@ namespace NoteSchool.DataBase.Tables
 
         //Functions
         private static String SELECT_HOMEWORK_SUBJECT = "SELECT_HOMEWORK_SUBJECT";
+        private static String GETCLASSESUNCOMPLETED = "GETCLASSESUNCOMPLETED ";
 
         //Root querys
         private static String INSERT_INTO_HOMEWORK = "INSERT INTO " + tableName + " (" +
@@ -102,10 +103,8 @@ namespace NoteSchool.DataBase.Tables
             DataGridViewColumn column;
 
             dgv.Columns[0].Visible = false;
-
-            column = dgv.Columns[1];
-            column.HeaderText = "Subject name";
-            column.Width = 200;
+            dgv.Columns[1].Visible = false;
+            
 
             column = dgv.Columns[2];
             column.HeaderText = "Title";
@@ -113,11 +112,16 @@ namespace NoteSchool.DataBase.Tables
 
             column = dgv.Columns[3];
             column.HeaderText = "Descripcion";
-            column.Width = 139;
+            column.Width = 340;
 
             column = dgv.Columns[4];
             column.HeaderText = "Date";
-            column.Width = 200;
+            column.Width = 101;
+
+            column = dgv.Columns[5];
+            column.HeaderText = "Status";
+            column.Width = 99;
+            
 
             //Estilo de texto para la tabla.
             dgv.ForeColor = Color.White;
@@ -125,6 +129,7 @@ namespace NoteSchool.DataBase.Tables
             dgv.DefaultCellStyle.BackColor = Color.FromArgb(28, 39, 43);
             dgv.AllowUserToResizeColumns = false;
             dgv.AllowUserToResizeRows = false;
+            
         }
 
         public static void deleteHomework(int id) {
@@ -139,22 +144,33 @@ namespace NoteSchool.DataBase.Tables
         }
 
         public static void getHomeworkWithId(int id, TextBox title, ComboBox cbSubject, DateTimePicker dateTimePicker, RichTextBox rtBody, ComboBox cbStatus) {
-
-            String query = "SELECT " + tTitle + ", " + tBody + ", " + tDate + ", " + tSubject + " FROM " + 
+            
+            Boolean status = false;
+            int idSubject = 0;
+            String query = "SELECT " + tTitle + ", " + tBody + ", " + tDate + ", " + tSubject + ", " + tStatus + " FROM " + 
                 tableName + " WHERE " + tIdHomework + " = " + id;
 
             sqlConnection = SqlOpenHelper.OpenConnection();
             sqlCommand = SqlOpenHelper.ExecNonQueryReturn(query, sqlConnection);
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
             while (sqlDataReader.Read()) {
                 title.Text = sqlDataReader.GetString(0);
                 rtBody.Text = sqlDataReader.GetString(1);
                 dateTimePicker.Value = sqlDataReader.GetDateTime(2);
-                cbSubject.SelectedIndex = 0;
+                idSubject = sqlDataReader.GetInt32(3);
+                status = sqlDataReader.GetBoolean(4);
             }
-            cbStatus.SelectedIndex = 0;
+
+            if (status == true) {
+                cbStatus.SelectedIndex = 1;
+            } else {
+                cbStatus.SelectedIndex = 0;
+            }
+
+            String subjectName = DataBase.Tables.Subject.GET_SUBJECT_NAME(idSubject);
+            cbSubject.SelectedIndex = cbSubject.Items.IndexOf(subjectName);
+
             sqlDataReader.Close();
             sqlConnection.Close();
 
@@ -188,6 +204,51 @@ namespace NoteSchool.DataBase.Tables
             
         }
 
+        public static void GETCLASSESUNCOMPLETE(DataGridView dgv) {
+
+            String query = "SELECT * FROM " + GETCLASSESUNCOMPLETED + "(0)";
+
+            sqlConnection = SqlOpenHelper.OpenConnection();
+            sqlCommand = SqlOpenHelper.ExecNonQueryReturn(query, sqlConnection);
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand); //Adapta los datos.
+            DataTable dt = new DataTable(); //Convierte los datos en tabla
+            da.Fill(dt); //Llena la tabla.
+
+            dgv.DataSource = dt; //Asigna al DGV la fuente de datos.
+
+            dgv.AllowUserToAddRows = false; //Desactva añadir una fila.
+            DataGridViewColumn column;
+
+            dgv.Columns[0].Visible = false;
+            
+            column = dgv.Columns[1];
+            column.HeaderText = "Subject";
+            column.Width = 150;
+
+            column = dgv.Columns[2];
+            column.HeaderText = "Title";
+            column.Width = 200;
+
+            column = dgv.Columns[3];
+            column.HeaderText = "Descripcion";
+            column.Width = 283;
+
+            column = dgv.Columns[4];
+            column.HeaderText = "Date";
+            column.Width = 101;
+
+            dgv.Columns[5].Visible = false;
+
+            //Estilo de texto para la tabla.
+            dgv.ForeColor = Color.White;
+            dgv.BackgroundColor = Color.FromArgb(28, 39, 43);
+            dgv.DefaultCellStyle.BackColor = Color.FromArgb(28, 39, 43);
+            dgv.AllowUserToResizeColumns = false;
+            dgv.AllowUserToResizeRows = false;
+
+
+        }
 
 
     }

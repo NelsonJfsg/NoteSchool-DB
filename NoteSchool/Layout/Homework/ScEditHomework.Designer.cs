@@ -29,6 +29,7 @@ namespace NoteSchool.Layout.Homework
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScEditHomework));
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -108,7 +109,7 @@ namespace NoteSchool.Layout.Homework
             this.cbStatus.Items.AddRange(new object[] {
             "Unfilled",
             "Complete"});
-            this.cbStatus.Location = new System.Drawing.Point(111, 413);
+            this.cbStatus.Location = new System.Drawing.Point(107, 408);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 29);
             this.cbStatus.TabIndex = 22;
@@ -156,6 +157,7 @@ namespace NoteSchool.Layout.Homework
             // rtBody
             // 
             this.rtBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
+            this.rtBody.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.rtBody.ForeColor = System.Drawing.Color.White;
             this.rtBody.Location = new System.Drawing.Point(32, 137);
             this.rtBody.Name = "rtBody";
@@ -166,9 +168,9 @@ namespace NoteSchool.Layout.Homework
             // tbTitle
             // 
             this.tbTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
-            this.tbTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.tbTitle.ForeColor = System.Drawing.Color.White;
-            this.tbTitle.Location = new System.Drawing.Point(93, 67);
+            this.tbTitle.Location = new System.Drawing.Point(88, 65);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(221, 29);
@@ -178,6 +180,7 @@ namespace NoteSchool.Layout.Homework
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -190,8 +193,11 @@ namespace NoteSchool.Layout.Homework
             this.Controls.Add(this.cbSubject);
             this.Controls.Add(this.rtBody);
             this.Controls.Add(this.tbTitle);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScEditHomework";
-            this.Text = "ScEditHomework";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NoteSchool - Edit homework";
             this.Load += new System.EventHandler(this.ScEditHomework_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

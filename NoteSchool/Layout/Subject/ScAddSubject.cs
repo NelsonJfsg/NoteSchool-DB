@@ -51,24 +51,32 @@ namespace NoteSchool.Layout.Subject
 
             //Set values
             subjectName = tbSubjectName.Text;
-            teacherName = "'" + tbTeacherName.Text + "'";
-            qualificationScores = "'" + tbQualificationScores.Text + "'";
+            teacherName = tbTeacherName.Text;
+            qualificationScores = tbQualificationScores.Text;
 
-            if (teacherName == "'" + defaultTextTeacherName + "'") {
-                teacherName = "DEFAULT";
+            if (subjectName == defaultTextName) {
+                MessageBox.Show("Please enter a valid name.");
+            } else {
+                if (teacherName == defaultTextTeacherName)
+                {
+                    teacherName = "No teachers name.";
+                }
+
+                if (qualificationScores == defaultTextQualfication)
+                {
+                    qualificationScores = "No qualification scores.";
+                }
+
+                //Insert into DB
+                DataBase.Tables.Subject.INSERT_INTO_SUBJECT(this, subjectName, teacherName, qualificationScores);
+
+                DataBase.Tables.Subject.fillDgv(tDGV);
+
+                DataBase.Tables.Subject.setDesignDGV(tDGV);
+                this.Close();
             }
 
-            if (qualificationScores == "'" + defaultTextQualfication + "'") {
-                qualificationScores = "DEFAULT";
-            }
-
-            //Insert into DB
-            DataBase.Tables.Subject.INSERT_INTO_SUBJECT(this, subjectName, teacherName, qualificationScores);
             
-            DataBase.Tables.Subject.fillDgv(tDGV);
-
-            DataBase.Tables.Subject.setDesignDGV(tDGV);
-            this.Close();
         }
 
 

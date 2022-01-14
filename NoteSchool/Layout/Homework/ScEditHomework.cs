@@ -28,6 +28,7 @@ namespace NoteSchool.Layout.Homework
 
         private void ScEditHomework_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = label1;
             DataBase.Tables.Subject.getAllSubjects(cbSubject);
             DataBase.Tables.Homework.getHomeworkWithId(thisId, tbTitle, cbSubject, dateTimePicker, rtBody, cbStatus);
             

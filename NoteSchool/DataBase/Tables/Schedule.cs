@@ -24,6 +24,9 @@ namespace NoteSchool.DataBase.Tables
         private static String tableName = "tSchedule";
         private static String viewTable = "GETCLASSES";
         private static String functionToSelectAndEdit = "GETCLASSWHEREID";
+        public static String InsertIntoSchedule = "EXEC InsertIntoSchedule ";
+        private static String UpdateSchedule = "EXEC UpdateSchedule ";
+        private static String DeleteSchedule = "EXEC DeleteSchedule ";
 
         //Table atributes
         private static String tIdClass = "idClass";
@@ -105,14 +108,27 @@ namespace NoteSchool.DataBase.Tables
 
         public static void DELETE_CLASS(int id) {
 
-            String query = "DELETE FROM " + tableName + " WHERE " + tIdClass + " = " + id;
+            String query = DeleteSchedule + id;
             sqlConnection = SqlOpenHelper.OpenConnection();
             SqlOpenHelper.ExecNonQuery(query, sqlConnection);
 
             sqlConnection.Close();
         }
 
+        //Metodo para ejecutar el link del aula.
+        public static void openLink(DataGridView dataGridView) {
 
+            try {
+
+                String link = dataGridView.CurrentRow.Cells[5].Value.ToString();
+                System.Diagnostics.Process.Start(link);
+
+            } catch (Exception err) {
+
+                MessageBox.Show("Ingrese un link valido.");
+
+            }
+        }
 
     }
 }

@@ -29,6 +29,7 @@ namespace NoteSchool.Layout.Login
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScLogin));
             this.lTitle = new System.Windows.Forms.Label();
             this.butLogin = new System.Windows.Forms.Button();
             this.tbUserName = new System.Windows.Forms.TextBox();
@@ -151,9 +152,10 @@ namespace NoteSchool.Layout.Login
             this.Controls.Add(this.lTitle);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoteSchool v0.5";
+            this.Text = "NoteSchool v1.0.2";
             this.Load += new System.EventHandler(this.ScLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

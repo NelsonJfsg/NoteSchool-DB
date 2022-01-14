@@ -70,35 +70,39 @@ namespace NoteSchool.Layout.Schedule
         private void butDone_Click(object sender, EventArgs e)
         {
 
-            ArrayList listOfDays = new ArrayList();
-            int subjectId = getSubjectId(cbClassname.Text);
+            if (!(cbClassname.Text == "")) {
+                ArrayList listOfDays = new ArrayList();
+                int subjectId = getSubjectId(cbClassname.Text);
 
-            getSelectDay(listOfDays, cbMonday);
-            getSelectDay(listOfDays, cbTuesday);
-            getSelectDay(listOfDays, cbWednesday);
-            getSelectDay(listOfDays, cbThursday);
-            getSelectDay(listOfDays, cbFriday);
-            getSelectDay(listOfDays, cbSaturday);
-            getSelectDay(listOfDays, cbSunday);
+                getSelectDay(listOfDays, cbMonday);
+                getSelectDay(listOfDays, cbTuesday);
+                getSelectDay(listOfDays, cbWednesday);
+                getSelectDay(listOfDays, cbThursday);
+                getSelectDay(listOfDays, cbFriday);
+                getSelectDay(listOfDays, cbSaturday);
+                getSelectDay(listOfDays, cbSunday);
 
-            for (int i = 0; i < listOfDays.Count; i++) {
-                
-                String query = DataBase.Tables.Schedule.INSERT_INTO_SCHEDULE +
-                "'" + listOfDays[i] + "', " +
-                "'" + tbStarttime.Text + "'," +
-                "'" + tbEndtime.Text + "'," +
-                "'" + tbLink.Text + "', " +
-                "'" + subjectId + "');";
+                for (int i = 0; i < listOfDays.Count; i++)
+                {
 
-                sqlConnection = DataBase.SqlOpenHelper.OpenConnection();
-                DataBase.SqlOpenHelper.ExecNonQuery(query, sqlConnection);
+                    String query = DataBase.Tables.Schedule.InsertIntoSchedule +
+                    "'" + listOfDays[i] + "', " +
+                    "'" + tbStarttime.Text + "'," +
+                    "'" + tbEndtime.Text + "'," +
+                    "'" + tbLink.Text + "', " + subjectId;
 
+                    sqlConnection = DataBase.SqlOpenHelper.OpenConnection();
+                    DataBase.SqlOpenHelper.ExecNonQuery(query, sqlConnection);
+
+                }
+
+                DataBase.Tables.Schedule.FUNCTION_SELECT(tDGV, thisDay);
+
+                sqlConnection.Close();
+                this.Close();
+            } else {
+                MessageBox.Show("Select a correct subject. \n If you dont have a subject, please add one in subject tab.");
             }
-
-            DataBase.Tables.Schedule.FUNCTION_SELECT(tDGV, thisDay);
-
-            sqlConnection.Close();
-            this.Close();
 
         }
 
